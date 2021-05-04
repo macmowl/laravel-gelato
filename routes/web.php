@@ -13,6 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'App\Http\Controllers\HomeController@home');
+Route::get('/account', 'App\Http\Controllers\AccountController@home');
+Route::get('/logout', 'App\Http\Controllers\AccountController@logout');
+Route::post('/update-password', 'App\Http\Controllers\AccountController@updatePassword');
+
+Route::post('/add-product', 'App\Http\Controllers\ProductController@add');
+
+
+Route::get('/signup', 'App\Http\Controllers\SignupController@form');
+Route::post('/signup', 'App\Http\Controllers\SignupController@execution');
+
+Route::get('/signin', 'App\Http\Controllers\SigninController@form');
+Route::post('/signin', 'App\Http\Controllers\SigninController@execution');
