@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Cake;
 
 class HomeController extends Controller
 {
     public function home() {
-        if(auth()->guest()) {
-            flash('Vous devez être connecté pour voir cette page.')->error();
-            return redirect('/signin');
-        }
-        return view('/products');
+
+        $cakes = Cake::all();
+        return view('/products', [
+            'cakes' => $cakes
+        ]);
     }
 }

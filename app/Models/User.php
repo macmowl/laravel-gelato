@@ -11,16 +11,8 @@ class User extends Model implements Authenticatable {
     use BasicAuthenticatable;
     protected $fillable = ['email', 'password'];
 
-    public function messages() {
-        return $this->hasMany(Message::class)->latest();
-    }
-
-    public function follows() {
-        return $this->belongsToMany(User::class, 'follows', 'follower_id', 'followed_id');
-    }
-
-    public function follow($user) {
-        return $this->follows()->where('followed_id', $user->id)->exists();
+    public function cakes() {
+        return $this->hasMany(Cake::class)->latest();
     }
 };
 ?>
