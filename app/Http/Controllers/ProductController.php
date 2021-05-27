@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cake;
+use DB;
 
 class ProductController extends Controller
 {
@@ -36,14 +37,28 @@ class ProductController extends Controller
         ]);
 
         flash('Le gâteau a été ajouté.')->success();
-        return back();
+        $cakes = Cake::all();
+        return redirect('/');
+    }
+
+    public function delete() {
+        $id = request('id');
+        DB::table('cakes')->where('id', $id)->delete();
+        flash('Le gâteau a été supprimé')->success();
+        return redirect('/');
+    }
+
+    public function edit() {
+        $id = request('id');
+        $cake = Cake::where('id', $id)->firstOrFail();
+        return view('edit', [
+            'cake' => $cake
+        ]);
     }
 
     public function showOne() {
         $id = request('id');
-
         $cake = Cake::where('id', $id)->firstOrFail();
-
         return view('cake', [
             'cake' => $cake
         ]);

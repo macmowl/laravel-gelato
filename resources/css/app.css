@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+
+#logo {
+    font-family: 'Courgette', cursive;
+    font-size: 4rem;
+    color: white;
+}
+
+.radio-group .radioShape{
+	position: relative;
+}
+
+.radioShape input{
+	visibility: hidden;
+	position: absolute;
+
+}
+
+.radioShape label:hover{
+  cursor: pointer;
+}
+
+.radioShape input:checked + label{
+  border-color:#38C172;
+	background-color:#E3FCEC;
+}

@@ -14,7 +14,7 @@ class SigninController extends Controller
     public function execution() {
         request()->validate([
             'email' => ['required', 'email'],
-            'password' => ['required']
+            'password' => ['required', 'min:8']
         ]);
 
         $result = auth()->attempt([

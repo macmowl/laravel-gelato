@@ -1,26 +1,51 @@
 @extends('layout')
 
 @section('content')
-
-    <section class="section">
-        <h1>Gelato</h1>
-        <form action="/signup" method="post">
+<div class="text-center flex flex-col h-screen justify-center items-center bg-gradient-to-tl from-blue-400 to-blue-200">
+      <div class="absolute sm:relative sm:flex sm:flex-col sm:justify-center bottom-0 flex flex-col justify-self-center">
+        <h1 id="logo">Gelato</h1>
+        <div class="w-screen bg-gray-50 px-5 py-10 mt-10 sm:max-w-sm sm:rounded-md sm:shadow-2xl">
+            <h2 class="text-left text-xl text-gray-700">Inscrire un utilisateur</h2>
+          <form method="post" action="/signup" class="flex flex-col space-y-4">
             {{ csrf_field() }}
-            <input type="email" name="email" placeholder="Email" value="{{ old('email') }}">
+            <input
+              type="email"
+              placeholder="Entrer un email"
+              id="email"
+              name="email"
+              value="{{ old('email') }}"
+              class="p-3 mt-10 rounded-md border border-gray-300 @error('email') border-red-500 @enderror"
+              required
+            />
             @if($errors->has('email'))
-                <p>{{ $errors->first('email') }}</p>
+                <p class="text-red-500 text-left text-xs">{{ $errors->first('email') }}</p>
             @endif
-            <input type="password" name="password" placeholder="Mot de passe">
+            <input
+              type="password"
+              placeholder="Choisissez un mot de passe"
+              id="password"
+              name="password"
+              class="p-3 rounded-md border border-gray-300 @error('email') border-red-500 @enderror"
+              required
+            />
             @if($errors->has('password'))
-                <p>{{ $errors->first('password') }}</p>
+                <p class="text-red-500 text-left text-xs">{{ $errors->first('password') }}</p>
             @endif
-            <input type="password" name="password_confirmation" placeholder="Mot de passe (confirmation)">
+            <input
+              type="password"
+              placeholder="Confirmer votre mot de passe"
+              id="password_confirmation"
+              name="password_confirmation"
+              class="p-3 rounded-md border border-gray-300 @error('email') border-red-500 @enderror"
+              required
+            />
             @if($errors->has('password_confirmation'))
-                <p>{{ $errors->first('password_confirmation') }}</p>
+                <p class="text-red-500 text-left text-xs">{{ $errors->first('password_confirmation') }}</p>
             @endif
-            <input type="submit" value="S'inscrire">
-        </form>
-    
-    </section>
+            <button type="submit" class="bg-blue-400 p-3 rounded-md text-white">Inscrire cet utilisateur</button>
+          </form>
+        </div>
+      </div>
+    </div>
 
 @endsection
