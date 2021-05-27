@@ -13,16 +13,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'App\Http\Controllers\HomeController@home');
-Route::get('/account', 'App\Http\Controllers\AccountController@home');
-Route::get('/logout', 'App\Http\Controllers\AccountController@logout');
-Route::post('/update-password', 'App\Http\Controllers\AccountController@updatePassword');
+Route::get('/signin', 'App\Http\Controllers\SigninController@form');
+Route::post('/signin', 'App\Http\Controllers\SigninController@execution');
 
-Route::post('/add-product', 'App\Http\Controllers\ProductController@add');
+Route::group([
+    'middleware' => 'App\Http\Middleware\Auth',
+], function() {
+    
 
+    Route::get('/account', 'App\Http\Controllers\AccountController@home');
+    Route::get('/logout', 'App\Http\Controllers\AccountController@logout');
+    Route::post('/update-password', 'App\Http\Controllers\AccountController@updatePassword');
+
+    Route::get('/new-cake', 'App\Http\Controllers\ProductController@home');
+    Route::post('/add-cake', 'App\Http\Controllers\ProductController@add');
+
+    Route::get('/cakes/{id}/delete', 'App\Http\Controllers\ProductController@delete');
+    Route::get('/cakes/{id}/edit', 'App\Http\Controllers\ProductController@edit');
+
+    Route::get('/cakes/{id}', 'App\Http\Controllers\ProductController@showOne');
+    Route::get('/', 'App\Http\Controllers\HomeController@home');
+});
 
 Route::get('/signup', 'App\Http\Controllers\SignupController@form');
 Route::post('/signup', 'App\Http\Controllers\SignupController@execution');
-
-Route::get('/signin', 'App\Http\Controllers\SigninController@form');
-Route::post('/signin', 'App\Http\Controllers\SigninController@execution');

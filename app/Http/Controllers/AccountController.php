@@ -21,11 +21,6 @@ class AccountController extends Controller
     }
 
     public function updatePassword() {
-        if(auth()->guest()) {
-            flash('Vous devez être connecté pour voir cette page.')->error();
-            return redirect('/signin');
-        }
-
         request()->validate([
             'password' => ['required', 'confirmed', 'min:8'],
             'password_confirmation' => ['required']
