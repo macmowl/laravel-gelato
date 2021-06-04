@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cake;
+use Illuminate\Http\Request;
 use DB;
 
 class ProductController extends Controller
@@ -37,7 +38,37 @@ class ProductController extends Controller
         ]);
 
         flash('Le gâteau a été ajouté.')->success();
-        $cakes = Cake::all();
+        return redirect('/');
+    }
+
+    public function update() {
+        request()->validate([
+            'nbrPersons' => ['required'],
+            'tastes' => ['required'],
+            'shape' => ['required'],
+        ]);
+
+        $id = request('id');
+
+        DB::table('cakes')->where('id', $id)->update([
+            'nbrPersons' => request('nbrPersons'),
+            'tastes' => request('tastes'),
+            'shape' => request('shape'),
+            'vegan' => request('vegan'),
+            'decoration' => request('decoration'),
+            'specificities' => request('specificities'),
+            'status' => request('status'),
+            'DeliveryDate' => request('DeliveryDate'),
+            'isForDelivery' => request('isForDelivery'),
+            'client_name' => request('client_name'),
+            'client_phone' => request('client_phone'),
+            'client_email' => request('client_email'),
+            'price' => request('price'),
+            'advance_payment' => request('advance_payment'),
+            'user_id' => auth()->id()
+        ]);
+
+        flash('Le gâteau a correctement été modifié.')->success();
         return redirect('/');
     }
 
@@ -62,5 +93,12 @@ class ProductController extends Controller
         return view('cake', [
             'cake' => $cake
         ]);
+    }
+
+    public function updateStatus() {
+        $status = request('status');
+        $id = request('id');
+        DB::table('cakes')->where('id', $id)->update(['status' => $status]);
+        return response()->json(['success' => 'Status mis à jour']);
     }
 }

@@ -28,8 +28,13 @@ Route::group([
     Route::get('/new-cake', 'App\Http\Controllers\ProductController@home');
     Route::post('/add-cake', 'App\Http\Controllers\ProductController@add');
 
+    Route::post('/update-status/{status}', 'App\Http\Controllers\ProductController@updateStatus');
+
     Route::get('/cakes/{id}/delete', 'App\Http\Controllers\ProductController@delete');
     Route::get('/cakes/{id}/edit', 'App\Http\Controllers\ProductController@edit');
+    Route::post('/edit-cake', 'App\Http\Controllers\ProductController@update');
+
+    Route::get('/archived', 'App\Http\Controllers\ArchivedController@all');
 
     Route::get('/cakes/{id}', 'App\Http\Controllers\ProductController@showOne');
     Route::get('/', 'App\Http\Controllers\HomeController@home');

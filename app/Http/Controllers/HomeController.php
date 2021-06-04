@@ -12,7 +12,8 @@ class HomeController extends Controller
         $today = date("Y-m-d H:i");
         $cakes = DB::table('cakes')->where('DeliveryDate', '>=', $today)->orderBy('DeliveryDate', 'asc')->get();
         return view('/products', [
-            'cakes' => $cakes
+            'cakes' => $cakes,
+            'archived' => false
         ]);
     }
 }

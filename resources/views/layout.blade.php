@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"> -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Gelato - Product management</title>
 </head>
 <body class="bg-gray-100">
@@ -16,6 +16,27 @@
     <script src="//code.jquery.com/jquery.js"></script>
     <script>
         $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
+        $("#change-status").on('change', function(event) {
+            event.preventDefault();
+            $.ajax({
+                url: `/update-status/${this.value}`,
+                type:"POST",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: {
+                    status: this.value,
+                    id: 16
+                },
+                success: function(data) {
+                    console.log(data);
+                }
+            });
+        });
+        $("#openMenu").on('click', function() {
+            $('#menuModal').addClass('block');
+            $('#menuModal').removeClass('hidden');
+        });
     </script>
 </body>
 </html>
