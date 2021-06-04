@@ -3,23 +3,16 @@
 @section('content')
 <div class="flex flex-col justify-center mb-5 p-4 bg-gradient-to-r from-green-400 to-blue-500">
     <div class="flex justify-between pb-8 sm:max-w-sm">
-        <a href="/">
-            <div class="block p-2 rounded-full border-white border-opacity-20 border-2">
-                <img src="/assets/icon_back.svg" alt="Back to cakes list" />
-            </div>
+        <a href="{{ $archived ? "/archived" : "/" }}" class="h-11 w-11 rounded-full border-2 border-opacity-10 border-white flex items-center justify-center">
+            <img src="/assets/icon_back.svg" alt="Retour" class="opacity-100"/>
         </a>
-        <div class="flex">
-            <a href="/cakes/{{ $cake->id }}/delete">
-                <div class="block p-2 rounded-full border-white border-opacity-20 border-2"><img src="/assets/icon_delete.svg" alt="Supprimer ce gâteau" /></div>
-            </a>
-            <a href="/cakes/{{ $cake->id }}/edit">
-                <div class="block p-2 rounded-full border-white border-opacity-20 border-2 ml-4"><img src="/assets/icon_edit.svg" alt="Editer ce gâteau" /></div>
-            </a>
-        </div>
+        <a href="/cakes/{{ $cake->id }}/edit">
+            <div class="block p-2 rounded-full border-white border-opacity-20 border-2 ml-4"><img src="/assets/icon_edit.svg" alt="Editer ce gâteau" /></div>
+        </a>
     </div>
 
     <h1 class="text-white text-2xl font-semibold mb-2">{{ $cake->tastes }}</h1>
-    <p class="text-blue-900 font-semibold mb-2">{{ $cake->nbrPersons }} personness <span class="text-white text-opacity-30">|</span> {{ $cake->shape }}</p>
+    <p class="text-blue-900 font-semibold mb-2">{{ $cake->nbrPersons }} personnes <span class="text-white text-opacity-30">|</span> {{ $cake->shape }}</p>
     @if ($cake->vegan)
         <div class="flex items-center justify-center vegan rounded-full bg-white shadow-md mt-3 w-11 h-11">
             <img src="/assets/icon_vegan.svg" alt="Gâteau vegan" class=""/>
@@ -54,7 +47,7 @@
         <div class="flex">
             <img src="/assets/icon_client_user.svg" alt="Phone's client" class="mr-2"/>
             <p class="font-semibold">{{ $cake->client_name }}</p>
-        </div> 
+        </div>
         <div class="flex">
             <img src="/assets/icon_client_phone.svg" alt="Phone's client" class="mr-2"/>
             <p>{{ $cake->client_phone}}</p>
@@ -75,17 +68,14 @@
     </div>
     <form>
         <h2 class="text-gray-400">État</h2>
-        <select
-            class="w-full h-10 bg-white border rounded-md px-2 border-gray-400"
-            value={form.state}
-        >
-            <option value="Not started" {{ $cake->status == 1 ? 'checked="checked' : null }}>Pas commencé</option>
-            <option value="Mold" {{ $cake->status == 2 ? 'checked="checked' : null }}>Moulé</option>
-            <option value="Done" {{ $cake->status == 3 ? 'checked="checked' : null }}>Terminé</option>
-            <option value="Gone" {{ $cake->status == 4 ? 'checked="checked' : null }}>Livré</option>
+        <select id="change-status"  class="w-full h-10 bg-white border rounded-md px-2 border-gray-400" >
+            <option value="1" {{ $cake->status == 1 ? "selected" : null }}>Pas commencé</option>
+            <option value="2" {{ $cake->status == 2 ? "selected" : null }}>Moulé</option>
+            <option value="3" {{ $cake->status == 3 ? "selected" : null }}>Terminé</option>
+            <option value="4" {{ $cake->status == 4 ? "selected" : null }}>Livré</option>
         </select>
     </form>
     <p class="text-sm text-gray-400 font-light text-center mt-4">Créé le {{ $cake->timestamps }}</p>
-    
 </div>
+
 @endsection

@@ -8,8 +8,8 @@
                 </a>
                 <h1 class="flex-1 justify-center text-xl text-white text-center">Nouveau gâteau</h1>
             </div>
-            <h2>Le gâteau</h2>
             <form class="container px-5 py-8 flex flex-col self-center sm:max-w-sm" action="/add-cake" method="post">
+                <h2 class="text-gray-500 font-semibold text-xl mb-4">Le gâteau</h2>
                 {{ csrf_field() }}
                 <input class="form-control mb-3 p-3 rounded-md border border-gray-300 @error('email') border-red-500 @enderror" name="tastes" type="text" placeholder="Les parfums" required>
                 @if($errors->has('tastes'))
@@ -47,8 +47,12 @@
                                 </label>
                             </div>
                         </div>
-                        <label for="vegan">
-                            <input type="checkbox" name="vegan" class="form-checkbox h-5 w-5 text-blue-400">Vegan<img src="/icon_vegan.svg" alt="Vegan" />
+                        <label for="vegan" class="flex my-4">
+                            <input type="checkbox" name="vegan" class="form-checkbox h-5 w-5 text-blue-400">
+                            <div class="flex ml-2">
+                                <p>Vegan</p>
+                                <img src="/assets/icon_vegan.svg" alt="Vegan" />
+                            </div>
                         </label>
                 </div>
                 <div>
@@ -87,7 +91,7 @@
                     <input type="checkbox" name="isForDelivery" class="form-checkbox h-5 w-5 text-blue-400">
                     <span class="ml-2 text-gray-700">The client wants to be delivered</span>
                 </label>    
-                <h2>Client</h2>
+                <h2 class="text-gray-500 font-semibold text-xl my-4">Client</h2>
                 <input class="form-control w-full mb-3 p-3 bg-white rounded-md border border-gray-300 @error('client_name') border-red-500 @enderror" type="text" name="client_name" placeholder="Nom et prénom du client" required>
                 @if($errors->has('client_name'))
                     <p class="invalid-feedback">{{ $errors->first('client_name') }}</p>

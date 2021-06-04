@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-<div class="text-center flex flex-col h-screen justify-center items-center bg-gradient-to-tl from-blue-400 to-blue-200">
+<div class="text-center flex flex-col h-screen justify-center items-center bg-gradient-to-r from-green-400 to-blue-500">
       <div class="absolute sm:relative sm:flex sm:flex-col sm:justify-center bottom-0 flex flex-col justify-self-center">
         <h1 id="logo">Gelato</h1>
         <div class="w-screen bg-gray-50 px-5 py-10 mt-10 sm:max-w-sm sm:rounded-md sm:shadow-2xl">
