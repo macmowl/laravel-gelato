@@ -14,7 +14,7 @@
 </div>
 
 <section class="p-3">
-    
+
     <h2 class="my-2 text-xl font-semibold text-gray-500">Modifier mon mot de passe</h2>
     <form class="section" action="/update-password" method="post">
         {{ csrf_field() }}
@@ -34,6 +34,8 @@
         </div>
         <button class="rounded-md w-full bg-blue-400 text-white h-10 mt-5" type="submit">Modifier</button>
     </form>
+
+    <a href="/signup"><button class="rounded-md w-full bg-green-400 text-white h-10 mt-5" type="submit">Créer un admin</button></a>
 
 </section>
 

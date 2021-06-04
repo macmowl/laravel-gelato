@@ -4,7 +4,7 @@
     <div class="flex flex-col justify-center">
             <div class="h-full p-4 w-full bg-gradient-to-r from-green-400 to-blue-500 flex items-center">
                 <a href="{{ url()->previous() }}" class="h-11 w-11 rounded-full border-2 border-opacity-10 border-white flex items-center justify-center">
-                    <img src="assets/icon_back.svg" alt="Retour" class="opacity-100"/>
+                    <img src="/assets/icon_back.svg" alt="Retour" class="opacity-100"/>
                 </a>
                 <h1 class="flex-1 justify-center text-xl text-white text-center">Édition du gâteau</h1>
                 <a href="/cakes/{{ $cake->id }}/delete">
@@ -28,7 +28,7 @@
                         <p class="text-sm text-red-600">{{ $errors->first('nbrPersons') }}</p>
                     @endif
                     <span class="mr-3">pers</span>
-                </div>	
+                </div>
                 <div>
                     <h2>Shape</h2>
                         <div class="radio-group flex flex-row flex-initial border-gray-300 border justify-center rounded-md">
@@ -90,11 +90,11 @@
                     >{{ $cake->specificities ?? null }}</textarea>
                 </div>
                 <input type="datetime-local" class="form-control w-full mb-3 p-3 bg-white rounded-md border border-gray-300 @error('DeliveryDate') border-red-500 @enderror" id="DeliveryDate" name="DeliveryDate" value="{{ $cake->DeliveryDate }}" required>
-                    
+
                 <label for="isForDelivery">
                     <input type="checkbox" name="isForDelivery" class="form-checkbox h-5 w-5 text-blue-400" {{ $cake->isForDelivery == 'on' ? "checked" : null}}>
                     <span class="ml-2 text-gray-700">Le client veut être livré</span>
-                </label>    
+                </label>
                 <h2 class="text-gray-500 font-semibold text-xl my-4">Client</h2>
                 <input class="form-control w-full mb-3 p-3 bg-white rounded-md border border-gray-300 @error('client_name') border-red-500 @enderror" type="text" name="client_name" placeholder="Nom et prénom du client" value="{{ $cake->client_name ?? null }}" required>
                 @if($errors->has('client_name'))

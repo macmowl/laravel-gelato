@@ -91,7 +91,8 @@ class ProductController extends Controller
         $id = request('id');
         $cake = Cake::where('id', $id)->firstOrFail();
         return view('cake', [
-            'cake' => $cake
+            'cake' => $cake,
+            'archived' => session('archived')
         ]);
     }
 

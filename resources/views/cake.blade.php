@@ -3,10 +3,8 @@
 @section('content')
 <div class="flex flex-col justify-center mb-5 p-4 bg-gradient-to-r from-green-400 to-blue-500">
     <div class="flex justify-between pb-8 sm:max-w-sm">
-        <a href="{{ url()->previous() }}">
-            <div class="block p-2 rounded-full border-white border-opacity-20 border-2">
-                <img src="/assets/icon_back.svg" alt="Back to cakes list" />
-            </div>
+        <a href="{{ $archived ? "/archived" : "/" }}" class="h-11 w-11 rounded-full border-2 border-opacity-10 border-white flex items-center justify-center">
+            <img src="/assets/icon_back.svg" alt="Retour" class="opacity-100"/>
         </a>
         <a href="/cakes/{{ $cake->id }}/edit">
             <div class="block p-2 rounded-full border-white border-opacity-20 border-2 ml-4"><img src="/assets/icon_edit.svg" alt="Editer ce gâteau" /></div>
@@ -49,7 +47,7 @@
         <div class="flex">
             <img src="/assets/icon_client_user.svg" alt="Phone's client" class="mr-2"/>
             <p class="font-semibold">{{ $cake->client_name }}</p>
-        </div> 
+        </div>
         <div class="flex">
             <img src="/assets/icon_client_phone.svg" alt="Phone's client" class="mr-2"/>
             <p>{{ $cake->client_phone}}</p>

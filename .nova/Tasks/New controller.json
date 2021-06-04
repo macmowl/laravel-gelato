@@ -1,0 +1,9 @@
+{
+  "actions" : {
+    "build" : {
+      "enabled" : true,
+      "script" : "php artisan make:controller ctrName"
+    }
+  },
+  "identifier" : "AC3987A6-D177-4F0A-8FB6-E0C47EA856E5"
+}

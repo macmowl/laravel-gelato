@@ -4,9 +4,9 @@
     <div id="menuModal" class="absolute bg-black bg-opacity-70 hidden w-screen h-screen">
         <div class="flex flex-col mt-20 justify-items-center items-center text-white w-screen">
             <h3 class="inline-block font-semibold text-4xl mb-4 opacity-100">Menu</h3>
-            <a href="/" class="inline-block text-2xl my-2 opacity-100">Accueil</a>
-            <a href="/account" class="inline-block text-2xl my-2 opacity-100">Mon compte</a>
+            <a href="/" class="inline-block text-2xl my-2 opacity-100">Dashboard</a>
             <a href="/archived" class="inline-block text-2xl my-2 opacity-100">Gâteaux archivés</a>
+            <a href="/account" class="inline-block text-2xl my-2 opacity-100">Mon compte</a>
         </div>
     </div>
     <a href="/new-cake" class="fixed bottom-4 right-4 bg-blue-400 rounded-full h-11 w-11 flex justify-items-center justify-center items-center">

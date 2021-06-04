@@ -19,7 +19,8 @@ Route::post('/signin', 'App\Http\Controllers\SigninController@execution');
 Route::group([
     'middleware' => 'App\Http\Middleware\Auth',
 ], function() {
-    
+    Route::get('/signup', 'App\Http\Controllers\SignupController@form');
+    Route::post('/signup', 'App\Http\Controllers\SignupController@execution');
 
     Route::get('/account', 'App\Http\Controllers\AccountController@home');
     Route::get('/logout', 'App\Http\Controllers\AccountController@logout');
@@ -40,5 +41,3 @@ Route::group([
     Route::get('/', 'App\Http\Controllers\HomeController@home');
 });
 
-Route::get('/signup', 'App\Http\Controllers\SignupController@form');
-Route::post('/signup', 'App\Http\Controllers\SignupController@execution');
