@@ -15,7 +15,9 @@
         "jquery-ui": "^1.12.1",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
-        "postcss": "^8.2.15",
+        "postcss": "^8.2.15"
+    },
+    "dependencies": {
         "tailwindcss": "^2.1.2"
     }
 }
