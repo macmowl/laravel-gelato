@@ -47,7 +47,7 @@
                             <div class="radioShape bg-white flex-1 rounded-tr-md rounded-br-md">
                                 <input type="radio" name="shape" id="halfSphere" value="halfSphere" {{ $cake->shape == 'halfSphere' ? "checked" : null }}>
                                 <label for="halfSphere" class="block text-center px-4 py-3 bg-white h-20 rounded-tr-md rounded-br-md">
-                                    <div class="font-semibold tracking-wide">Demi-sphère</div>
+                                    <div class="font-semibold tracking-wide">Demi-Sphère</div>
                                 </label>
                             </div>
                         </div>
