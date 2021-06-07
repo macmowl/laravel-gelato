@@ -59,28 +59,14 @@
                             </div>
                         </label>
                 </div>
-                <div>
-                    <h2>Status</h2>
-                        <div class="radio-group flex flex-row flex-initial border-gray-300 border justify-center rounded-md">
-                            <div class="radioShape bg-white flex-1 rounded-tl-md rounded-bl-md">
-                                <input type="radio" name="status" id="1" value="1" {{ $cake->status == 1 ? "checked" : null }}>
-                                <label for="1" class="block text-center px-4 py-3 bg-white rounded-tl-md rounded-bl-md h-20">
-                                    <div class="font-semibold tracking-wide">Pas commencé</div>
-                                </label>
-                            </div>
-                            <div class="radioShape bg-white flex-1">
-                                <input type="radio" name="status" id="2" value="2" {{ $cake->status == 2 ? "checked" : null }}>
-                                <label for="2" class="block text-center px-4 py-3 bg-white h-20 border-l border-r">
-                                    <div class="font-semibold tracking-wide">Moulé</div>
-                                </label>
-                            </div>
-                            <div class="radioShape bg-white flex-1 rounded-tr-md rounded-br-md">
-                                <input type="radio" name="status" id="3" value="3" {{ $cake->status == 3 ? "checked" : null }}>
-                                <label for="3" class="block text-center px-4 py-3 bg-white h-20 rounded-tr-md rounded-br-md">
-                                    <div class="font-semibold tracking-wide">Terminé</div>
-                                </label>
-                            </div>
-                        </div>
+                <div class="my-4">
+                    <h2 class="text-gray-400">État</h2>
+                    <select id="status" name="status"  class="w-full h-10 bg-white border rounded-md px-2 border-gray-400" >
+                        <option value="1" {{ $cake->status == 1 ? "selected" : null }}>Pas commencé</option>
+                        <option value="2" {{ $cake->status == 2 ? "selected" : null }}>Moulé</option>
+                        <option value="3" {{ $cake->status == 3 ? "selected" : null }}>Terminé</option>
+                        <option value="4" {{ $cake->status == 4 ? "selected" : null }}>Livré</option>
+                    </select>
                 </div>
                 <div>
                     <textarea

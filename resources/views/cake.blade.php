@@ -64,7 +64,7 @@
         <p class="text-right mr-3">Prix : {{ $cake->price}} €</p>
         <p class="text-right mr-3 mb-2">Acompte : {{ $cake->advance_payment }} €</p>
         <hr>
-        <p class="text-2xl font-semibold text-right mr-3 mt-2">Total : {{ $cake->price - $cake->advance_payment }} €</p>
+        <p class="text-2xl font-semibold text-right mr-3 mt-2">Solde restant : {{ $cake->price - $cake->advance_payment }} €</p>
     </div>
     <form>
         <h2 class="text-gray-400">État</h2>

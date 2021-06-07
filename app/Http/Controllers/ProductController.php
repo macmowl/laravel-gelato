@@ -100,6 +100,7 @@ class ProductController extends Controller
         $status = request('status');
         $id = request('id');
         DB::table('cakes')->where('id', $id)->update(['status' => $status]);
+        flash('Status mis à jour')->success();
         return response()->json(['success' => 'Status mis à jour']);
     }
 }
