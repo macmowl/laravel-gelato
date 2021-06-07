@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <link href="{{ URL::asset('css/app.css') }}" rel="stylesheet">
-    <link rel="icon" href="{{ URL::asset('favicon.ico') }}" type="image/x-icon"/>
+    <link href="/css/app.css" rel="stylesheet">
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon"/>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>.::Gelato app::.</title>
 </head>
