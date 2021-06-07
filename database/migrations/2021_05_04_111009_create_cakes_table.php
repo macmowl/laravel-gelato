@@ -16,7 +16,7 @@ class CreateCakesTable extends Migration
         Schema::create('cakes', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('nbrPersons');
-            $table->integer('shape');
+            $table->string('shape');
             $table->string('tastes');
             $table->boolean('vegan')->nullable();
             $table->json('decoration')->nullable();
