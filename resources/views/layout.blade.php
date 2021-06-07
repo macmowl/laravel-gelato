@@ -18,6 +18,7 @@
     <script src="//code.jquery.com/jquery.js"></script>
     <script>
         $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
+
         $("#change-status").on('change', function(event) {
             event.preventDefault();
             $.ajax({
@@ -39,6 +40,31 @@
             $('#menuModal').addClass('block');
             $('#menuModal').removeClass('hidden');
         });
+        $('#menuModal').on('click', function() {
+            $('#menuModal').removeClass('block');
+            $('#menuModal').addClass('hidden');
+        });
+
+        $('input[type=radio][name=nbrPersons]').on('click', function() {
+            console.log($('input[name=nbrPersons]:checked').val());
+            $('input[type=number][name=nbrPersons]').val('');
+        });
+        $('input[type=number][name=nbrPersons]').on('input', function() {
+            console.log($('input[type=number][name=nbrPersons]').val());
+            $('input[type=radio][name=nbrPersons]').prop("checked", false);
+        });
+
+        $('#price').val($('input[name=nbrPersons]').val() * 4);
+        $('#price, #advance').each(function() {
+            $(this).on('change', function(){
+                $('#remaining').html($('#price').val() - $('#advance').val());
+            });
+        });
+        $('input[name=nbrPersons]').on('change', function(){
+            $('#price').val(this.value * 4);
+            $('#remaining').html($('#price').val() - $('#advance').val());
+        });
+
     </script>
 </body>
 </html>

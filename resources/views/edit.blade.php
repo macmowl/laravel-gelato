@@ -19,14 +19,26 @@
                 @if($errors->has('tastes'))
                     <p class="text-sm text-red-600">{{ $errors->first('tastes') }}</p>
                 @endif
-                <div class="w-full mb-3 border-gray-300 bg-white border rounded-md flex items-center relative">
-                    <div class="flex py-3 items-center h-full cursor-pointer leading-normal rounded rounded-r-none border-r-2 px-5 whitespace-no-wrap text-grey-dark">6</div>
-                    <div class="flex py-3 items-center h-full cursor-pointer leading-normal border-r-2 px-5 whitespace-no-wrap text-grey-dark">8</div>
-                    <div class="flex py-3 items-center h-full cursor-pointer leading-normal border-r-2 px-5 whitespace-no-wrap text-grey-dark">10</div>
-                    <input class="pl-3 w-full @error('email') border-red-500 @enderror" type="number" id="nbrPersons" name="nbrPersons" placeholder="64" value="{{ $cake->nbrPersons ?? null }}" required>
-                    @if($errors->has('nbrPersons'))
-                        <p class="text-sm text-red-600">{{ $errors->first('nbrPersons') }}</p>
-                    @endif
+                <div class="radio-group flex flex-row flex-initial border-gray-300 border justify-center rounded-md @error('email') border-red-500 @enderror">
+                    <div class="radioShape bg-white flex-1 rounded-tl-md rounded-bl-md">
+                        <input type="radio" name="nbrPersons" id="6" value="6" checked>
+                        <label for="6" class="block text-center px-4 py-3 bg-white rounded-tl-md rounded-bl-md">
+                            <div class="tracking-wide">6</div>
+                        </label>
+                    </div>
+                    <div class="radioShape bg-white flex-1">
+                        <input type="radio" name="nbrPersons" id="8" value="8">
+                        <label for="8" class="block text-center px-4 py-3 bg-white border-l border-r">
+                            <div class="tracking-wide">8</div>
+                        </label>
+                    </div>
+                    <div class="radioShape bg-white flex-1 rounded-tr-md rounded-br-md">
+                        <input type="radio" name="nbrPersons" id="10" value="10">
+                        <label for="10" class="block text-center px-4 py-3 bg-white rounded-tr-md rounded-br-md">
+                            <div class="tracking-wide">10</div>
+                        </label>
+                    </div>
+                    <input class="pl-3 w-full" type="number" id="nbrPersons" name="nbrPersons" placeholder="64">
                     <span class="mr-3">pers</span>
                 </div>
                 <div>
@@ -111,19 +123,6 @@
                 <p class="text-right mr-1">Le solde restant est de : <span id="remaining">0</span> €</p>
                 <button class="rounded-md w-full bg-blue-400 text-white h-10 mt-5">Modifier ce gâteau</button>
             </form>
-            <script>
-                let remaining = document.getElementById('remaining');
-                document.getElementById('price').addEventListener('change', function(){
-                    remaining.innerHTML = document.getElementById('price').value - document.getElementById('advance').value;
-                });
-                document.getElementById('advance').addEventListener('input', function(){
-                    remaining.innerHTML = price.value - advance.value;
-                });
-                document.getElementById('nbrPersons').addEventListener('input', function(){
-                    document.getElementById('price').value = this.value * 4;
-                    remaining.innerHTML = document.getElementById('price').value - document.getElementById('advance').value;
-                });
-            </script>
         </div>
 
 @endsection
