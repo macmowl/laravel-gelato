@@ -28,7 +28,7 @@
                 },
                 data: {
                     status: this.value,
-                    id: 16
+                    id: $("#idCake").val()
                 },
                 success: function(data) {
                     console.log(data);

@@ -74,6 +74,7 @@
             <option value="3" {{ $cake->status == 3 ? "selected" : null }}>Terminé</option>
             <option value="4" {{ $cake->status == 4 ? "selected" : null }}>Livré</option>
         </select>
+        <input type="hidden" id="idCake" name="id" value="{{ $cake->id }}">
     </form>
     <p class="text-sm text-gray-400 font-light text-center mt-4">Créé le {{ $cake->timestamps }}</p>
 </div>

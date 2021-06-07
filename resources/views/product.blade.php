@@ -105,7 +105,7 @@
                     <p class="invalid-feedback">{{ $errors->first('advance_payment') }}</p>
                 @endif
                 <p class="text-right mr-1">Le solde restant est de : <span id="remaining">0</span> €</p>
-                <button class="rounded-md w-full bg-blue-400 text-white h-10 mt-5">Add this new cake</button>
+                <button class="rounded-md w-full bg-blue-400 text-white h-10 mt-5">Ajouter ce gâteau</button>
             </form>
             <script>
                 let remaining = document.getElementById('remaining');
