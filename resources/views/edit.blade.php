@@ -20,27 +20,27 @@
                     <p class="text-sm text-red-600">{{ $errors->first('tastes') }}</p>
                 @endif
                 <div class="radio-group flex flex-row flex-initial border-gray-300 border justify-center rounded-md @error('email') border-red-500 @enderror">
-                    <div class="radioShape bg-white flex-1 rounded-tl-md rounded-bl-md">
-                        <input type="radio" name="nbrPersons" id="6" value="6" checked>
-                        <label for="6" class="block text-center px-4 py-3 bg-white rounded-tl-md rounded-bl-md">
-                            <div class="tracking-wide">6</div>
-                        </label>
-                    </div>
-                    <div class="radioShape bg-white flex-1">
-                        <input type="radio" name="nbrPersons" id="8" value="8">
-                        <label for="8" class="block text-center px-4 py-3 bg-white border-l border-r">
-                            <div class="tracking-wide">8</div>
-                        </label>
-                    </div>
-                    <div class="radioShape bg-white flex-1 rounded-tr-md rounded-br-md">
-                        <input type="radio" name="nbrPersons" id="10" value="10">
-                        <label for="10" class="block text-center px-4 py-3 bg-white rounded-tr-md rounded-br-md">
-                            <div class="tracking-wide">10</div>
-                        </label>
-                    </div>
-                    <input class="pl-3 w-full" type="number" id="nbrPersons" name="nbrPersons" placeholder="64">
-                    <span class="mr-3">pers</span>
+                <div class="radioShape bg-white flex-1 rounded-tl-md rounded-bl-md">
+                    <input type="radio" name="nbrPersons" id="6" value="6" {{ $cake->nbrPersons == 6 ? "checked" : null }}>
+                    <label for="6" class="block text-center px-4 py-3 bg-white rounded-tl-md rounded-bl-md">
+                        <div class="tracking-wide">6</div>
+                    </label>
                 </div>
+                <div class="radioShape bg-white flex-1">
+                    <input type="radio" name="nbrPersons" id="8" value="8" {{ $cake->nbrPersons == 8 ? "checked" : null }}>
+                    <label for="8" class="block text-center px-4 py-3 bg-white border-l border-r">
+                        <div class="tracking-wide">8</div>
+                    </label>
+                </div>
+                <div class="radioShape bg-white flex-1 rounded-tr-md rounded-br-md">
+                    <input type="radio" name="nbrPersons" id="10" value="10" {{ $cake->nbrPersons == 10 ? "checked" : null }}>
+                    <label for="10" class="block text-center px-4 py-3 bg-white rounded-tr-md rounded-br-md">
+                        <div class="tracking-wide">10</div>
+                    </label>
+                </div>
+                <input class="pl-3 w-full" type="number" id="nbrPersons" name="nbrPersons" placeholder="64" value="{{ $cake->nbrPersons > 10 ? $cake->nbrPersons : null }}">
+                <span class="mr-3">pers</span>
+            </div>
                 <div>
                     <h2>Shape</h2>
                         <div class="radio-group flex flex-row flex-initial border-gray-300 border justify-center rounded-md">

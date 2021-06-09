@@ -16,14 +16,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/signin', 'App\Http\Controllers\SigninController@form');
 Route::post('/signin', 'App\Http\Controllers\SigninController@execution');
 
+Route::get('/forgot-password', 'App\Http\Controllers\ForgotPasswordController@getEmail');
+Route::post('/forgot-password', 'App\Http\Controllers\ForgotPasswordController@postEmail');
 
+Route::get('/signup', 'App\Http\Controllers\SignupController@form');
+Route::post('/signup', 'App\Http\Controllers\SignupController@execution');
 
 Route::group([
     'middleware' => 'App\Http\Middleware\Auth',
 ], function() {
 
-    Route::get('/signup', 'App\Http\Controllers\SignupController@form');
-    Route::post('/signup', 'App\Http\Controllers\SignupController@execution');
+
 
     Route::get('/account', 'App\Http\Controllers\AccountController@home');
     Route::get('/logout', 'App\Http\Controllers\AccountController@logout');
