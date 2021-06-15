@@ -76,7 +76,7 @@
         </select>
         <input type="hidden" id="idCake" name="id" value="{{ $cake->id }}">
     </form>
-    <p class="text-sm text-gray-400 font-light text-center mt-4">Créé le {{ $cake->timestamps }}</p>
+    <p class="text-sm text-gray-400 font-light text-center mt-4">Créé le {!! date('d M y', strtotime($cake->created_at)) !!} par {{ $creator->username }}</p>
 </div>
 
 @endsection

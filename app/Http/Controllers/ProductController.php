@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cake;
+use App\Models\User;
 use Illuminate\Http\Request;
 use DB;
 
@@ -90,7 +91,9 @@ class ProductController extends Controller
     public function showOne() {
         $id = request('id');
         $cake = Cake::where('id', $id)->firstOrFail();
+        $creator = User::where('id', $cake->user_id)->first();
         return view('cake', [
+            'creator' => $creator,
             'cake' => $cake,
             'archived' => session('archived')
         ]);

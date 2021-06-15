@@ -11,7 +11,7 @@ class User extends Model implements Authenticatable {
 
     use Notifiable;
     use BasicAuthenticatable;
-    protected $fillable = ['email', 'password'];
+    protected $fillable = ['email', 'password', 'username'];
 
     public function cakes() {
         return $this->hasMany(Cake::class)->latest();

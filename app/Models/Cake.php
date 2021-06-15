@@ -22,6 +22,7 @@ class Cake extends Model
         'client_phone',
         'client_email',
         'price',
-        'advance_payment'
+        'advance_payment',
+        'user_id'
     ];
 }

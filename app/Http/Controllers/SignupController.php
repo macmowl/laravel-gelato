@@ -14,24 +14,21 @@ class SignupController extends Controller
     public function execution () {
         request()->validate([
             'email' => ['required', 'email'],
+            'username' => ['required'],
             'password' => ['required', 'confirmed', 'min:8'],
             'password_confirmation' => ['required'],
         ], [
             'password.min' => 'Pour des raisons de sécurité, votre mot de passe doit faire :min caractères.'
         ]);
-    
+
         $user  = User::create([
             'email' => request('email'),
+            'username' => request('username'),
             'password' => bcrypt(request('password')),
         ]);
-        
-        $resultat = auth()->attempt([
-            'email' => request('email'),
-            'password' => request('password'),
-        ]);
 
-        if ($resultat) {
-            flash('Vous êtes à présent enregistré et connecté.')->success();
+        if ($user) {
+            flash('Vous avez enregistré un nouvel utilisateur (' . request('email') . ')')->success();
             return redirect('/');
         }
 

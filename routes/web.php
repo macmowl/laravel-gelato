@@ -18,6 +18,8 @@ Route::post('/signin', 'App\Http\Controllers\SigninController@execution');
 
 Route::get('/forgot-password', 'App\Http\Controllers\ForgotPasswordController@getEmail');
 Route::post('/forgot-password', 'App\Http\Controllers\ForgotPasswordController@postEmail');
+Route::get('/reset-password/{token}', 'App\Http\Controllers\ResetPasswordController@getPassword');
+Route::post('/reset-password', 'App\Http\Controllers\ResetPasswordController@updatePassword');
 
 Route::get('/signup', 'App\Http\Controllers\SignupController@form');
 Route::post('/signup', 'App\Http\Controllers\SignupController@execution');

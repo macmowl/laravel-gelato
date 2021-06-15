@@ -98,7 +98,7 @@
                 @if($errors->has('client_name'))
                     <p class="invalid-feedback">{{ $errors->first('client_name') }}</p>
                 @endif
-                <input class="form-control w-full mb-3 p-3 bg-white rounded-md border border-gray-300 @error('client_phone') border-red-500 @enderror" type="tel" name="client_phone" placeholder="GSM du client" value="{{ $cake->client_phone ?? null }}" required>
+                <input class="form-control w-full mb-3 p-3 bg-white rounded-md border border-gray-300 @error('client_phone') border-red-500 @enderror" type="tel" name="client_phone" placeholder="GSM du client" value="{{ $cake->client_phone ?? null }}" maxlength="13">
                 @if($errors->has('client_phone'))
                     <p class="invalid-feedback">{{ $errors->first('client_phone') }}</p>
                 @endif

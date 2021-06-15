@@ -9,6 +9,18 @@
           <form method="post" action="/signup" class="flex flex-col space-y-4">
             {{ csrf_field() }}
             <input
+              type="text"
+              placeholder="Entrer un pseudo"
+              id="username"
+              name="username"
+              value="{{ old('username') }}"
+              class="p-3 mt-10 rounded-md border border-gray-300 @error('username') border-red-500 @enderror"
+              required
+            />
+            @if($errors->has('email'))
+                <p class="text-red-500 text-left text-xs">{{ $errors->first('email') }}</p>
+            @endif
+            <input
               type="email"
               placeholder="Entrer un email"
               id="email"

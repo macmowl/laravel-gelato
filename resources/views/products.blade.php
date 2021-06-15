@@ -19,7 +19,7 @@
                     <h1 class="text-xl">Liste des gâteaux archivés</h1>
                 @else
                     <div>
-                        <h1 class="text-xl">Hello, {{ auth()->user()->email }}</h1>
+                        <h1 class="text-xl">Hello, {{ auth()->user()->username }}</h1>
                         <p class="text-sm font-light">Que fait-on aujourd'hui ?</p>
                     </div>
                 @endif

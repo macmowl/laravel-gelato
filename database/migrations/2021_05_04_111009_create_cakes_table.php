@@ -24,11 +24,11 @@ class CreateCakesTable extends Migration
             $table->integer('status')->default('1');
             $table->dateTime('DeliveryDate')->nullable();
             $table->boolean('isForDelivery')->nullable();
-            $table->integer('user_id')->nullable();
             $table->string('client_name');
-            $table->integer('client_phone');
+            $table->integer('client_phone')->nullable();
             $table->string('client_email')->nullable();
             $table->timestamps();
+            $table->foreignId('user_id')->nullable()->constrained("users")->cascadeOnUpdate()->nullOnDelete();
         });
     }
 

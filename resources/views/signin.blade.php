@@ -34,7 +34,7 @@
             @endif
             <button type="submit" class="bg-blue-400 p-3 rounded-md text-white">Se connecter</button>
           </form>
-          <a href="/forgot-password">Mot de passe oublié ?</a>
+          <a href="/forgot-password" class="block mt-3 no-underline hover:underline">Mot de passe oublié ?</a>
         </div>
       </div>
     </div>
