@@ -18,17 +18,19 @@ class CreateCakesTable extends Migration
             $table->integer('nbrPersons');
             $table->string('shape');
             $table->string('tastes');
-            $table->boolean('vegan')->nullable();
+            $table->string('vegan')->nullable();
             $table->json('decoration')->nullable();
             $table->string('specificities')->nullable();
             $table->integer('status')->default('1');
             $table->dateTime('DeliveryDate')->nullable();
-            $table->boolean('isForDelivery')->nullable();
+            $table->string('isForDelivery')->nullable();
             $table->string('client_name');
             $table->integer('client_phone')->nullable();
             $table->string('client_email')->nullable();
+            $table->integer('price')->default('0');
+            $table->integer('advance_payment')->nullable();
             $table->timestamps();
-            $table->foreignId('user_id')->nullable()->constrained("users")->cascadeOnUpdate()->nullOnDelete();
+            $table->foreignId('user_id')->nullable()->constrained("users");
         });
     }
 

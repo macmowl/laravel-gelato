@@ -21,9 +21,11 @@
 </div>
 <div class="flex flex-col px-4 self-center sm:max-w-sm">
     @if ($cake->decoration)
-        <div class="mt-5">
-            <h2 class="text-gray-400">Decoration</h2>
-            <p>{{ $cake->decoration }}</p>
+        <div class="my-5">
+            <h2 class="text-gray-400">Décorations</h2>
+            @foreach($cake->decoration as $deco)
+                <p>{{ $deco }}</p>
+            @endforeach
         </div>
     @endif
     @if ($cake->specificities)

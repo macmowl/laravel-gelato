@@ -25,4 +25,8 @@ class Cake extends Model
         'advance_payment',
         'user_id'
     ];
+
+    protected $casts = [
+        'decoration' => 'array',
+    ];
 }

@@ -28,7 +28,7 @@
                 </div>
             </div>
         </div>
-        <div class="container px-5 flex flex-col sm:max-w-sm">
+        <div class="container px-5 py-4 flex flex-col self-center sm:max-w-sm">
             <div class="md:justify-between">
             @forelse($cakes as $cake)
                 <a href="/cakes/{{ $cake->id }}" class="container flex justify-between rounded-md transition duration-500 ease-in-out shadow-md p-3 my-5 md:max-w-lg bg-white cursor-pointer hover:shadow-xl">
@@ -67,5 +67,4 @@
             <p>Profil</p>
         </div>
     </div>
-
 @endsection

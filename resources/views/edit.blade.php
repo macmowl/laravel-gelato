@@ -19,28 +19,10 @@
                 @if($errors->has('tastes'))
                     <p class="text-sm text-red-600">{{ $errors->first('tastes') }}</p>
                 @endif
-                <div class="radio-group flex flex-row flex-initial border-gray-300 border justify-center rounded-md @error('email') border-red-500 @enderror">
-                <div class="radioShape bg-white flex-1 rounded-tl-md rounded-bl-md">
-                    <input type="radio" name="nbrPersons" id="6" value="6" {{ $cake->nbrPersons == 6 ? "checked" : null }}>
-                    <label for="6" class="block text-center px-4 py-3 bg-white rounded-tl-md rounded-bl-md">
-                        <div class="tracking-wide">6</div>
-                    </label>
+                <div class="radio-group flex flex-row flex-initial bg-white py-3 border-gray-300 border justify-center rounded-md">
+                    <input class="pl-3 w-full" type="number" id="nbrPersons" name="nbrPersons" placeholder="64" value="{{ $cake->nbrPersons > 10 ? $cake->nbrPersons : null }}">
+                    <span class="mr-3">pers</span>
                 </div>
-                <div class="radioShape bg-white flex-1">
-                    <input type="radio" name="nbrPersons" id="8" value="8" {{ $cake->nbrPersons == 8 ? "checked" : null }}>
-                    <label for="8" class="block text-center px-4 py-3 bg-white border-l border-r">
-                        <div class="tracking-wide">8</div>
-                    </label>
-                </div>
-                <div class="radioShape bg-white flex-1 rounded-tr-md rounded-br-md">
-                    <input type="radio" name="nbrPersons" id="10" value="10" {{ $cake->nbrPersons == 10 ? "checked" : null }}>
-                    <label for="10" class="block text-center px-4 py-3 bg-white rounded-tr-md rounded-br-md">
-                        <div class="tracking-wide">10</div>
-                    </label>
-                </div>
-                <input class="pl-3 w-full" type="number" id="nbrPersons" name="nbrPersons" placeholder="64" value="{{ $cake->nbrPersons > 10 ? $cake->nbrPersons : null }}">
-                <span class="mr-3">pers</span>
-            </div>
                 <div>
                     <h2>Shape</h2>
                         <div class="radio-group flex flex-row flex-initial border-gray-300 border justify-center rounded-md">
@@ -72,6 +54,15 @@
                         </label>
                 </div>
                 <div class="my-4">
+                    <h2 class="text-gray-400">Décorations</h2>
+                    <input type="checkbox" name="decoration[]" class="form-checkbox h-5 w-5 text-blue-400 mr-2" id="decoration" value="Crème fraiche" {{ in_array("Crème fraiche", $cake->decoration) ? "checked" : null }}>Crème fraiche<br>
+                    <input type="checkbox" name="decoration[]" class="form-checkbox h-5 w-5 text-blue-400 mr-2" id="decoration" value="Topping Chocolat" {{ in_array("Topping Chocolat", $cake->decoration) ? "checked" : null }}>Topping Chocolat<br>
+                    <input type="checkbox" name="decoration[]" class="form-checkbox h-5 w-5 text-blue-400 mr-2" id="decoration" value="Topping caramel" {{ in_array("Topping caramel", $cake->decoration) ? "checked" : null }}>Topping caramel<br>
+                    <input type="checkbox" name="decoration[]" class="form-checkbox h-5 w-5 text-blue-400 mr-2" id="decoration" value="Brésilienne" {{ in_array("Brésilienne", $cake->decoration) ? "checked" : null }}>Brésilienne<br>
+                    <input type="checkbox" name="decoration[]" class="form-checkbox h-5 w-5 text-blue-400 mr-2" id="decoration" value="Granulés chocolat" {{ in_array("Granulés chocolat", $cake->decoration) ? "checked" : null }}>Granulés chocolat<br>
+                    <input type="checkbox" name="decoration[]" class="form-checkbox h-5 w-5 text-blue-400 mr-2" id="decoration" value="Fruits frais" {{ in_array("Fruits frais", $cake->decoration) ? "checked" : null }}>Fruits frais<br>
+                </div>
+                <div class="my-4">
                     <h2 class="text-gray-400">État</h2>
                     <select id="status" name="status"  class="w-full h-10 bg-white border rounded-md px-2 border-gray-400" >
                         <option value="1" {{ $cake->status == 1 ? "selected" : null }}>Pas commencé</option>
@@ -87,7 +78,7 @@
                         name="specificities"
                     >{{ $cake->specificities ?? null }}</textarea>
                 </div>
-                <input type="datetime-local" class="form-control w-full mb-3 p-3 bg-white rounded-md border border-gray-300 @error('DeliveryDate') border-red-500 @enderror" id="DeliveryDate" name="DeliveryDate" value="{{ $cake->DeliveryDate }}" required>
+                <input type="datetime-local" class="form-control w-full mb-3 p-3 bg-white rounded-md border border-gray-300 @error('DeliveryDate') border-red-500 @enderror" id="DeliveryDate" name="DeliveryDate" value="{!! date('Y-m-d\TH:i', strtotime($cake->DeliveryDate)) !!}" required>
 
                 <label for="isForDelivery">
                     <input type="checkbox" name="isForDelivery" class="form-checkbox h-5 w-5 text-blue-400" {{ $cake->isForDelivery == 'on' ? "checked" : null}}>
