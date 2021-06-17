@@ -50,13 +50,27 @@
                 </div>
                 <div class="my-3">
                     <h2 class="text-gray-400">Décorations</h2>
-                    <input type="checkbox" name="decoration[]"  class="form-checkbox h-5 w-5 text-blue-400 mr-2" id="decoration" value="Crème fraiche">Crème fraiche<br>
-                    <input type="checkbox" name="decoration[]"  class="form-checkbox h-5 w-5 text-blue-400 mr-2" id="decoration" value="Topping Chocolat">Topping Chocolat<br>
-                    <input type="checkbox" name="decoration[]"  class="form-checkbox h-5 w-5 text-blue-400 mr-2" id="decoration" value="Topping caramel">Topping caramel<br>
-                    <input type="checkbox" name="decoration[]"  class="form-checkbox h-5 w-5 text-blue-400 mr-2" id="decoration" value="Brésilienne">Brésilienne<br>
-                    <input type="checkbox" name="decoration[]"  class="form-checkbox h-5 w-5 text-blue-400 mr-2" id="decoration" value="Granulés chocolat">Granulés chocolat<br>
-                    <input type="checkbox" name="decoration[]"  class="form-checkbox h-5 w-5 text-blue-400 mr-2" id="decoration" value="Fruits frais">Fruits frais<br>
-                    <input type="checkbox" name="decoration[]"  class="form-checkbox h-5 w-5 text-blue-400 mr-2" id="decoration" value="Meringues">Meringues<br>
+                    <label for="decoration1">
+                        <input type="checkbox" name="decoration[]"  class="form-checkbox h-5 w-5 text-blue-400 mr-2" id="decoration1" value="Crème fraiche">Crème fraiche<br>
+                    </label>
+                    <label for="decoration2">
+                        <input type="checkbox" name="decoration[]"  class="form-checkbox h-5 w-5 text-blue-400 mr-2" id="decoration2" value="Topping Chocolat">Topping Chocolat<br>
+                    </label>
+                    <label for="decoration3">
+                        <input type="checkbox" name="decoration[]"  class="form-checkbox h-5 w-5 text-blue-400 mr-2" id="decoration3" value="Topping caramel">Topping caramel<br>
+                    </label>
+                    <label for="decoration4">
+                        <input type="checkbox" name="decoration[]"  class="form-checkbox h-5 w-5 text-blue-400 mr-2" id="decoration4" value="Brésilienne">Brésilienne<br>
+                    </label>
+                    <label for="decoration5">
+                        <input type="checkbox" name="decoration[]"  class="form-checkbox h-5 w-5 text-blue-400 mr-2" id="decoration5" value="Granulés chocolat">Granulés chocolat<br>
+                    </label>
+                    <label for="decoration6">
+                        <input type="checkbox" name="decoration[]"  class="form-checkbox h-5 w-5 text-blue-400 mr-2" id="decoration6" value="Fruits frais">Fruits frais<br>
+                    </label>
+                    <label for="decoration7">
+                        <input type="checkbox" name="decoration[]"  class="form-checkbox h-5 w-5 text-blue-400 mr-2" id="decoration7" value="Meringues">Meringues<br>
+                    </label>
                 </div>
                 <div class="my-4">
                     <h2 class="text-gray-400">État</h2>

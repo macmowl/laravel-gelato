@@ -55,12 +55,27 @@
                 </div>
                 <div class="my-4">
                     <h2 class="text-gray-400">Décorations</h2>
-                    <input type="checkbox" name="decoration[]" class="form-checkbox h-5 w-5 text-blue-400 mr-2" id="decoration" value="Crème fraiche" {{ in_array("Crème fraiche", $cake->decoration) ? "checked" : null }}>Crème fraiche<br>
-                    <input type="checkbox" name="decoration[]" class="form-checkbox h-5 w-5 text-blue-400 mr-2" id="decoration" value="Topping Chocolat" {{ in_array("Topping Chocolat", $cake->decoration) ? "checked" : null }}>Topping Chocolat<br>
-                    <input type="checkbox" name="decoration[]" class="form-checkbox h-5 w-5 text-blue-400 mr-2" id="decoration" value="Topping caramel" {{ in_array("Topping caramel", $cake->decoration) ? "checked" : null }}>Topping caramel<br>
-                    <input type="checkbox" name="decoration[]" class="form-checkbox h-5 w-5 text-blue-400 mr-2" id="decoration" value="Brésilienne" {{ in_array("Brésilienne", $cake->decoration) ? "checked" : null }}>Brésilienne<br>
-                    <input type="checkbox" name="decoration[]" class="form-checkbox h-5 w-5 text-blue-400 mr-2" id="decoration" value="Granulés chocolat" {{ in_array("Granulés chocolat", $cake->decoration) ? "checked" : null }}>Granulés chocolat<br>
-                    <input type="checkbox" name="decoration[]" class="form-checkbox h-5 w-5 text-blue-400 mr-2" id="decoration" value="Fruits frais" {{ in_array("Fruits frais", $cake->decoration) ? "checked" : null }}>Fruits frais<br>
+                    <label for="decoration1">
+                        <input type="checkbox" name="decoration[]" class="form-checkbox h-5 w-5 text-blue-400 mr-2" id="decoration1" value="Crème fraiche" {{ in_array("Crème fraiche", $cake->decoration) ? "checked" : null }}>Crème fraiche<br>
+                    </label>
+                    <label for="decoration2">
+                        <input type="checkbox" name="decoration[]" class="form-checkbox h-5 w-5 text-blue-400 mr-2" id="decoration2" value="Topping Chocolat" {{ in_array("Topping Chocolat", $cake->decoration) ? "checked" : null }}>Topping Chocolat<br>
+                    </label>
+                    <label for="decoration3">
+                        <input type="checkbox" name="decoration[]" class="form-checkbox h-5 w-5 text-blue-400 mr-2" id="decoration3" value="Topping caramel" {{ in_array("Topping caramel", $cake->decoration) ? "checked" : null }}>Topping caramel<br>
+                    </label>
+                    <label for="decoration4">
+                        <input type="checkbox" name="decoration[]" class="form-checkbox h-5 w-5 text-blue-400 mr-2" id="decoration4" value="Brésilienne" {{ in_array("Brésilienne", $cake->decoration) ? "checked" : null }}>Brésilienne<br>
+                    </label>
+                    <label for="decoration5">
+                        <input type="checkbox" name="decoration[]" class="form-checkbox h-5 w-5 text-blue-400 mr-2" id="decoration5" value="Granulés chocolat" {{ in_array("Granulés chocolat", $cake->decoration) ? "checked" : null }}>Granulés chocolat<br>
+                    </label>
+                    <label for="decoration6">
+                        <input type="checkbox" name="decoration[]" class="form-checkbox h-5 w-5 text-blue-400 mr-2" id="decoration6" value="Fruits frais" {{ in_array("Fruits frais", $cake->decoration) ? "checked" : null }}>Fruits frais<br>
+                    </label>
+                    <label for="decoration7">
+                        <input type="checkbox" name="decoration[]" class="form-checkbox h-5 w-5 text-blue-400 mr-2" id="decoration7" value="Meringues" {{ in_array("Meringues", $cake->decoration) ? "checked" : null }}>Meringues<br>
+                    </label>
                 </div>
                 <div class="my-4">
                     <h2 class="text-gray-400">État</h2>

@@ -44,11 +44,11 @@
                     <div class="text-right">
                         <p>{{ $cake->nbrPersons }} pers | {{ $cake->price }} €</p>
                         @if ($cake->status == 1)
-                            <p class="text-gray-400">Pas commencé</p>
+                            <p class="text-red-400">Pas commencé</p>
                         @elseif ($cake->status == 2)
-                            <p class="text-green-400">Moulé</p>
+                            <p class="text-yellow-500">Moulé</p>
                         @elseif ($cake->status == 3)
-                            <p class="text-red-400">Terminé</p>
+                            <p class="text-green-400">Terminé</p>
                         @else
                             <p class="text-blue-400">Livré</p>
                         @endif

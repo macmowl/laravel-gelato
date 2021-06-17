@@ -23,9 +23,11 @@
     @if ($cake->decoration)
         <div class="my-5">
             <h2 class="text-gray-400">Décorations</h2>
+            <ul>
             @foreach($cake->decoration as $deco)
-                <p>{{ $deco }}</p>
+                <li><span class="text-gray-200">•</span> {{ $deco }}</li>
             @endforeach
+            </ul>
         </div>
     @endif
     @if ($cake->specificities)
@@ -50,10 +52,12 @@
             <img src="/assets/icon_client_user.svg" alt="Phone's client" class="mr-2"/>
             <p class="font-semibold">{{ $cake->client_name }}</p>
         </div>
+        @if ($cake->client_phone)
         <div class="flex">
             <img src="/assets/icon_client_phone.svg" alt="Phone's client" class="mr-2"/>
             <p>{{ $cake->client_phone}}</p>
         </div>
+        @endif
         @if ($cake->client_email)
         <div class="flex">
             <img src="/assets/icon_client_phone.svg" alt="Phone's client" class="mr-2"/>
@@ -61,12 +65,22 @@
         </div>
         @endif
     </div>
-    <div class="mb-5">
-        <h2 class="text-gray-400">Prix</h2>
-        <p class="text-right mr-3">Prix : {{ $cake->price}} €</p>
-        <p class="text-right mr-3 mb-2">Acompte : {{ $cake->advance_payment }} €</p>
-        <hr>
-        <p class="text-2xl font-semibold text-right mr-3 mt-2">Solde restant : {{ $cake->price - $cake->advance_payment }} €</p>
+    <div class="flex flex-col mb-5 w-100 gap-2">
+        <h2 class="text-gray-400">Détail du prix</h2>
+        <div class="flex flex-row gap-2">
+            <div class="bg-white flex flex-col flex-1 py-2 justify-between items-center rounded-lg">
+                <p>{{ $cake->price}} €</p>
+                <p class="text-sm text-gray-400 font-light">prix</p>
+            </div>
+            <div class="bg-white flex flex-col flex-1 py-2 justify-between items-center rounded-lg">
+                <p>{{ $cake->advance_payment}} €</p>
+                <p class="text-sm text-gray-400 font-light">Acompte</p>
+            </div>
+        </div>
+        <div class="bg-white flex flex-1 py-2 px-4 justify-between items-center rounded-lg">
+            <p class="text-sm text-gray-400 font-light">Solde restant</p>
+            <p class="font-bold text-xl">{{ $cake->price - $cake->advance_payment }} €</p>
+        </div>
     </div>
     <form>
         <h2 class="text-gray-400">État</h2>
