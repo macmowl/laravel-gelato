@@ -21,14 +21,12 @@ Route::post('/forgot-password', 'App\Http\Controllers\ForgotPasswordController@p
 Route::get('/reset-password/{token}', 'App\Http\Controllers\ResetPasswordController@getPassword');
 Route::post('/reset-password', 'App\Http\Controllers\ResetPasswordController@updatePassword');
 
-Route::get('/signup', 'App\Http\Controllers\SignupController@form');
-Route::post('/signup', 'App\Http\Controllers\SignupController@execution');
-
 Route::group([
     'middleware' => 'App\Http\Middleware\Auth',
 ], function() {
 
-
+    Route::get('/signup', 'App\Http\Controllers\SignupController@form');
+    Route::post('/signup', 'App\Http\Controllers\SignupController@execution');
 
     Route::get('/account', 'App\Http\Controllers\AccountController@home');
     Route::get('/logout', 'App\Http\Controllers\AccountController@logout');
